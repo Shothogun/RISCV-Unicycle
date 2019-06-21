@@ -1,0 +1,77 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.rv_pkg.all;
+
+
+entity ula is
+	generic (WSIZE : natural := 32);
+	port (
+		opcode : in ULA_OP;
+		A, B : in std_logic_vector(WSIZE-1 downto 0);
+		Z : out std_logic_vector(WSIZE-1 downto 0);
+		zero : out std_logic);
+end ula;
+
+architecture ula_arch of ula is
+signal result : std_logic_vector(WSIZE-1 downto 0);
+signal auxzero : std_logic;
+
+begin
+
+	Z <= result;
+
+	proc_ula: process(A, B ,opcode, result)
+	begin
+	
+		case opcode is
+			when ADD_OP => result <= std_logic_vector(signed(A) + signed(B));
+			when SUB_OP => result <= std_logic_vector(signed(A) - signed(B));
+			when AND_OP => result <= std_logic_vector(A and B);
+			when OR_OP => result  <= std_logic_vector(A or B);
+			when NOR_OP => result <= std_logic_vector(A nor B);
+			when XOR_OP => result <= std_logic_vector(A xor B);
+			when SLL_OP => result <= std_logic_vector(shift_left(unsigned(A), to_integer(unsigned(B))));
+			when SRL_OP => result <= std_logic_vector(shift_right(unsigned(A), to_integer(unsigned(B))));
+			when SRA_OP => result <= std_logic_vector(shift_right(signed(A), to_integer(unsigned(B))));
+			when SLT_OP => if (signed(A) < signed(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when SLTU_OP => if (unsigned(A) < unsigned(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when SGE_OP => if (signed(A) >= signed(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when SGEU_OP => if (unsigned(A) >= unsigned(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when SEQ_OP => if (signed(A) = signed(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when SNE_OP => if (signed(A) /= signed(B)) then
+												result <= (std_logic_vector(to_unsigned(1, 32)));
+											else
+												result <= (std_logic_vector(to_unsigned(0, 32)));
+											end if;
+			when others => result <= std_logic_vector(A);
+		end case;
+		if(result = (std_logic_vector(to_unsigned(0, 32)))) then
+			zero <= '1';
+		else
+			zero <= '0';
+		end if;
+	end process;
+end ula_arch;
+
+	

@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity genImm32 is
+	port (
+		instr : in std_logic_vector(31 downto 0);
+		imm32 : out signed(31 downto 0));
+end genImm32;
+
+architecture genImm32_arch of genImm32 is
+
+signal opcode : std_logic_vector(7 downto 0);
+signal aux_imm : signed(31 downto 0);
+
+begin
+
+	imm32 <= aux_imm;
+	
+	proc_gen:process(instr, opcode, aux_imm)
+	begin
+	
+		opcode <= ('0'&instr(6 downto 0));
+	
+		case opcode is
+			when X"33" => aux_imm <= X"00000000";
+			when X"23" => aux_imm <= (resize(signed(instr(31 downto 25)&instr(11 downto 7)), 32));
+			when X"63" => aux_imm <= (resize(signed(instr(31)&instr(7)&instr(30 downto 25)&instr(11 downto 8)&'0'), 32));
+			when X"37" => aux_imm <= (signed(shift_left((resize(signed(instr(31 downto 12)), 32)), 12)) and X"FFFFF000");
+			when X"6F" => aux_imm <= (resize(signed(instr(31)&instr(19 downto 12)&instr(20)&instr(30 downto 21)&'0'), 32));
+			when others => aux_imm <= (resize(signed(instr(31 downto 20)), 32));
+		end case;
+	end process;
+end genImm32_arch;
+
+
+	
