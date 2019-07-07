@@ -14,12 +14,9 @@
 
 ## TODO
 
-- Registrador PC
-- Memória de instruções
 - Banco de registradores
 - Terminar ULA(operações remanescentes)
 - Memória de dados
-- Mux 2-1
 - Somadores de 32 bits
 - Unidade de controle
 - Unidade de controle ULA
