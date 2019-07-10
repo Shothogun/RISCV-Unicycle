@@ -1,5 +1,5 @@
 Analysis & Synthesis report for processor
-Tue Jul 09 23:15:40 2019
+Wed Jul 10 01:33:08 2019
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,12 +13,23 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "Adder:AdderJumps"
- 10. Port Connectivity Checks: "Adder:AdderPC"
- 11. Port Connectivity Checks: "PC:RegisterPC"
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated
+ 12. Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated
+ 13. Parameter Settings for User Entity Instance: memIntr:Mem_Instrunctions|altsyncram:altsyncram_component
+ 14. Parameter Settings for User Entity Instance: ula:ALU
+ 15. Parameter Settings for User Entity Instance: memData:Mem_Data|altsyncram:altsyncram_component
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "xregs:RegBank"
+ 18. Port Connectivity Checks: "control:Controller"
+ 19. Port Connectivity Checks: "memIntr:Mem_Instrunctions"
+ 20. Port Connectivity Checks: "Adder:AdderJumps"
+ 21. Port Connectivity Checks: "Adder:AdderPC"
+ 22. Port Connectivity Checks: "PC:RegisterPC"
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -44,7 +55,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 09 23:15:40 2019           ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 10 01:33:08 2019           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; processor                                       ;
 ; Top-level Entity Name              ; processor                                       ;
@@ -162,17 +173,36 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                               ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                        ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
-; ../PC/PC.vhd                     ; yes             ; User VHDL File  ; D:/Quartus/ProjetoFinal/PC/PC.vhd                   ;         ;
-; ../Adder/Adder.vhd               ; yes             ; User VHDL File  ; D:/Quartus/ProjetoFinal/Adder/Adder.vhd             ;         ;
-; ../xregs/reg_pkg.vhd             ; yes             ; User VHDL File  ; D:/Quartus/ProjetoFinal/xregs/reg_pkg.vhd           ;         ;
-; ../ula/rv_pkg.vhd                ; yes             ; User VHDL File  ; D:/Quartus/ProjetoFinal/ula/rv_pkg.vhd              ;         ;
-; processor.vhd                    ; yes             ; User VHDL File  ; D:/Quartus/ProjetoFinal/Final_Project/processor.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; ../ULA_control/ULA_Control.vhd   ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/ULA_control/ULA_Control.vhd                             ;         ;
+; memData.vhd                      ; yes             ; User Wizard-Generated File   ; D:/Quartus/ProjetoFinal/Final_Project/memData.vhd                               ;         ;
+; memIntr.vhd                      ; yes             ; User Wizard-Generated File   ; D:/Quartus/ProjetoFinal/Final_Project/memIntr.vhd                               ;         ;
+; ../PC/PC.vhd                     ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/PC/PC.vhd                                               ;         ;
+; ../MUX/MUX-2-1.vhd               ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/MUX/MUX-2-1.vhd                                         ;         ;
+; ../control/Control.vhd           ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/control/Control.vhd                                     ;         ;
+; ../Adder/Adder.vhd               ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/Adder/Adder.vhd                                         ;         ;
+; ../xregs/xregs.vhd               ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/xregs/xregs.vhd                                         ;         ;
+; ../xregs/reg_pkg.vhd             ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/xregs/reg_pkg.vhd                                       ;         ;
+; ../ula/ula.vhd                   ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/ula/ula.vhd                                             ;         ;
+; ../ula/rv_pkg.vhd                ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/ula/rv_pkg.vhd                                          ;         ;
+; ../genImm32/genImm32.vhd         ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/genImm32/genImm32.vhd                                   ;         ;
+; processor.vhd                    ; yes             ; User VHDL File               ; D:/Quartus/ProjetoFinal/Final_Project/processor.vhd                             ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_sti1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_sti1.tdf                    ;         ;
+; db/altsyncram_psi1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_psi1.tdf                    ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------+
@@ -199,6 +229,1052 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                    ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+---------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                      ; IP Include File                                   ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+---------------------------------------------------+
+; Altera ; RAM: 1-PORT  ; N/A     ; N/A          ; N/A          ; |processor|memData:Mem_Data          ; D:/Quartus/ProjetoFinal/Final_Project/memData.vhd ;
+; Altera ; RAM: 1-PORT  ; N/A     ; N/A          ; N/A          ; |processor|memIntr:Mem_Instrunctions ; D:/Quartus/ProjetoFinal/Final_Project/memIntr.vhd ;
++--------+--------------+---------+--------------+--------------+--------------------------------------+---------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Registers Removed During Synthesis                            ;
++------------------------------------------+--------------------+
+; Register name                            ; Reason for Removal ;
++------------------------------------------+--------------------+
+; xregs:RegBank|regs[0][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[0][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[0][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[1][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[1][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[2][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[2][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[3][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[3][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[4][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[4][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[5][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[5][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[6][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[6][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[7][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[7][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[8][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[8][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][31]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][30]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][29]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][28]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][27]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][26]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][25]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][24]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][23]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][22]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][21]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][20]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][19]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][18]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][17]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][16]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][15]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][14]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][13]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][12]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][11]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][10]                ; Lost fanout        ;
+; xregs:RegBank|regs[9][9]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][8]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][7]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][6]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][5]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][4]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][3]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][2]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][1]                 ; Lost fanout        ;
+; xregs:RegBank|regs[9][0]                 ; Lost fanout        ;
+; xregs:RegBank|regs[10][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[10][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[10][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[11][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[11][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[12][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[12][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[13][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[13][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[14][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[14][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[15][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[15][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[16][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[16][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[17][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[17][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[18][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[18][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[19][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[19][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[20][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[20][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[21][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[21][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[22][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[22][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[23][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[23][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[24][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[24][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[25][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[25][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[26][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[26][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[27][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[27][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[28][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[28][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[29][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[29][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[30][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[30][0]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][31]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][30]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][29]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][28]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][27]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][26]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][25]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][24]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][23]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][22]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][21]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][20]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][19]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][18]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][17]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][16]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][15]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][14]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][13]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][12]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][11]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][10]               ; Lost fanout        ;
+; xregs:RegBank|regs[31][9]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][8]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][7]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][6]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][5]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][4]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][3]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][2]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][1]                ; Lost fanout        ;
+; xregs:RegBank|regs[31][0]                ; Lost fanout        ;
+; xregs:RegBank|ro1[0..31]                 ; Lost fanout        ;
+; xregs:RegBank|ro2[0..31]                 ; Lost fanout        ;
+; PC:RegisterPC|Q_sign[2..9]               ; Lost fanout        ;
+; Total Number of Removed Registers = 1096 ;                    ;
++------------------------------------------+--------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
@@ -214,13 +1290,221 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-----------------------------------------------------------------------------------------------------------------+
+; Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memIntr:Mem_Instrunctions|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                       ;
++------------------------------------+----------------------+--------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                    ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                    ;
+; WIDTH_A                            ; 32                   ; Signed Integer                             ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                             ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WIDTH_B                            ; 1                    ; Untyped                                    ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                    ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; INIT_FILE                          ; memIntrInit.mif      ; Untyped                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                    ;
+; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                                    ;
+; CBXI_PARAMETER                     ; altsyncram_sti1      ; Untyped                                    ;
++------------------------------------+----------------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ula:ALU ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; wsize          ; 32    ; Signed Integer              ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memData:Mem_Data|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                           ;
+; WIDTH_A                            ; 32                   ; Signed Integer                    ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                    ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 1                    ; Untyped                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; memDataInit.mif      ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_psi1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                      ;
++-------------------------------------------+-----------------------------------------------------------+
+; Name                                      ; Value                                                     ;
++-------------------------------------------+-----------------------------------------------------------+
+; Number of entity instances                ; 2                                                         ;
+; Entity Instance                           ; memIntr:Mem_Instrunctions|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                               ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
+; Entity Instance                           ; memData:Mem_Data|altsyncram:altsyncram_component          ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                               ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
++-------------------------------------------+-----------------------------------------------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "xregs:RegBank" ;
++------+-------+----------+-----------------+
+; Port ; Type  ; Severity ; Details         ;
++------+-------+----------+-----------------+
+; rst  ; Input ; Info     ; Stuck at GND    ;
++------+-------+----------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:Controller"                                                                    ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; memread ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "memIntr:Mem_Instrunctions" ;
++------+-------+----------+-----------------------------+
+; Port ; Type  ; Severity ; Details                     ;
++------+-------+----------+-----------------------------+
+; data ; Input ; Info     ; Stuck at GND                ;
+; wren ; Input ; Info     ; Stuck at GND                ;
++------+-------+----------+-----------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "Adder:AdderJumps"                                                                   ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; cin  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; c    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -234,18 +1518,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; a[1..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; a[2]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; cin      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; c        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; cout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PC:RegisterPC"                                                                      ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PC:RegisterPC"                                                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; q[31..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; q[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -263,7 +1547,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Jul 09 23:15:35 2019
+    Info: Processing started: Wed Jul 10 01:33:06 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file /quartus/projetofinal/ula_control/ula_control.vhd
@@ -305,15 +1589,129 @@ Info (12021): Found 2 design units, including 1 entities, in source file process
     Info (12022): Found design unit 1: processor-processor_arch
     Info (12023): Found entity 1: processor
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at processor.vhd(17): used implicit default value for signal "in_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at processor.vhd(17): object "out_pc" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at processor.vhd(18): used implicit default value for signal "reset_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhd(75): used implicit default value for signal "PC_adder" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at processor.vhd(75): object "resultPC_adder" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at processor.vhd(78): used implicit default value for signal "Imediato_adder" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at processor.vhd(78): object "resultPCJump_adder" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at processor.vhd(19): used implicit default value for signal "reset_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at processor.vhd(50): object "MemRead_control" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at processor.vhd(66): used implicit default value for signal "PC_adder" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "PC" for hierarchy "PC:RegisterPC"
 Info (12128): Elaborating entity "Adder" for hierarchy "Adder:AdderPC"
+Info (12128): Elaborating entity "MUX" for hierarchy "MUX:MuxWherePC"
+Info (12128): Elaborating entity "memIntr" for hierarchy "memIntr:Mem_Instrunctions"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "memIntrInit.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV GX"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sti1.tdf
+    Info (12023): Found entity 1: altsyncram_sti1
+Info (12128): Elaborating entity "altsyncram_sti1" for hierarchy "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated"
+Info (12128): Elaborating entity "control" for hierarchy "control:Controller"
+Info (12128): Elaborating entity "xregs" for hierarchy "xregs:RegBank"
+Warning (10492): VHDL Process Statement warning at xregs.vhd(34): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "genImm32" for hierarchy "genImm32:Imm_Gen"
+Info (12128): Elaborating entity "ULA_control" for hierarchy "ULA_control:ULA_Controller"
+Info (12128): Elaborating entity "ula" for hierarchy "ula:ALU"
+Info (12128): Elaborating entity "memData" for hierarchy "memData:Mem_Data"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "memData:Mem_Data|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "memData:Mem_Data|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "memData:Mem_Data|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "memDataInit.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV GX"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_psi1.tdf
+    Info (12023): Found entity 1: altsyncram_psi1
+Info (12128): Elaborating entity "altsyncram_psi1" for hierarchy "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[31]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[31]"
+Info (17049): 1096 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -322,10 +1720,10 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4697 megabytes
-    Info: Processing ended: Tue Jul 09 23:15:40 2019
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
+    Info: Peak virtual memory: 4714 megabytes
+    Info: Processing ended: Wed Jul 10 01:33:08 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

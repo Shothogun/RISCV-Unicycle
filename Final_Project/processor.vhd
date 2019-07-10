@@ -14,20 +14,19 @@ end processor;
 architecture processor_arch of processor is
 
 -- Signals PC
-signal in_pc, out_pc : std_logic_vector(7 downto 0);
+signal out_pc : std_logic_vector(31 downto 0);
+signal in_pc : std_logic_vector(31 downto 0) := X"00000000";
 signal reset_pc : std_logic;
 
 component PC is	
 	port(
-		P : in std_logic_vector(7 downto 0);
+		P : in std_logic_vector(31 downto 0);
 		reset, clk: in std_logic;
-		Q: out std_logic_vector(7 downto 0));
+		Q: out std_logic_vector(31 downto 0));
 end component;
 
 -- Signals XREGS
-signal data_xregs, ro1_xregs, ro2_xregs : std_logic_vector(31 downto 0);
-signal rs1_xregs, rs2_xregs, rd_xregs : std_logic_vector(4 downto 0);
-signal wren_xregs, rst_xregs : std_logic;
+signal ro1_xregs, ro2_xregs : std_logic_vector(31 downto 0);
 
 component xregs is
 	port (
@@ -37,15 +36,8 @@ component xregs is
 		ro1, ro2 : out std_logic_vector(31 downto 0));
 end component;
 
--- Signals MUX PC
-signal SaltoPC_mux, IncrementaPC_mux, SaidaPC_mux : std_logic_vector(31 downto 0);
-
--- Signals MUX ULA
-signal ReadData2_mux, Imediato_mux, SaidaToULA_mux : std_logic_vector(31 downto 0);
-
 -- Signals MUX MEM
-signal ReadDataMem_mux, ULAResult_mux, WriteDataULA_mux : std_logic_vector(31 downto 0);
-signal EscolheToRegister_mux : std_logic;
+signal WriteDataRegisters_mux : std_logic_vector(31 downto 0);
 
 component MUX is	
 	port(
@@ -55,9 +47,8 @@ component MUX is
 end component;
 
 -- Signals Control
-signal opcode_control : std_logic_vector(6 downto 0);
 signal Branch_control, MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
-signal ALUop : std_logic_vector(1 downto 0);
+signal ALUop_control : std_logic_vector(1 downto 0);
 
 component control is	
 	port(
@@ -75,7 +66,7 @@ end component;
 signal PC_adder, resultPC_adder : std_logic_vector(31 downto 0);
 
 -- Signals Adder Jumps
-signal Imediato_adder, resultPCJump_adder : std_logic_vector(31 downto 0);
+signal resultPCJump_adder : std_logic_vector(31 downto 0);
 
 component Adder is	
 	port(
@@ -86,10 +77,8 @@ component Adder is
 end component;
 
 -- Signals for ULA
-signal opcode_ula : ULA_OP;
-signal A_ula, B_ula, Z_ula : std_logic_vector(31 downto 0);
+signal A_ula, B_ula, resultUla: std_logic_vector(31 downto 0);
 signal zero_ula : std_logic;
-
 
 component ula is
 	generic (WSIZE : natural := 32);
@@ -100,9 +89,8 @@ component ula is
 		zero : out std_logic);
 end component;
 
--- Signals GENIMM32
-signal instr_gen, imm32_gen : std_logic_vector(31 downto 0);
-
+-- Signals for IMMGEN
+signal imm_generated : signed(31 downto 0);
 
 component genImm32 is
 	port (
@@ -111,8 +99,7 @@ component genImm32 is
 end component;
 
 -- Signals for MEMIntr
-signal address_intr : std_logic_vector(7 downto 0);
-signal data_intr, q_intr : std_logic_vector(31 downto 0);
+signal q_instr : std_logic_vector(31 downto 0);
 
 component memIntr IS
 	PORT
@@ -126,8 +113,7 @@ component memIntr IS
 END component;
 
 -- Signals for MEMData
-signal address_data : std_logic_vector(7 downto 0);
-signal data_data, q_data : std_logic_vector(31 downto 0);
+signal q_data : std_logic_vector(31 downto 0);
 
 component memData IS
 	PORT
@@ -140,17 +126,49 @@ component memData IS
 	);
 END component;
 
+-- Signals for ULA_control
+signal aluctr_control : ULA_OP;
+
 component ULA_control is	
 	port(
-		funct7: in std_logic_vector(6 downto 0);
-		funct3: in std_logic_vector(2 downto 0);
+		instr_part : in std_logic_vector(3 downto 0);
 		aluop: in std_logic_vector(1 downto 0);
-		aluctr: out std_logic_vector(3 downto 0));
+		aluctr: out ULA_OP);
 end component;
 
 begin
+
+	-- PC Part
 	RegisterPC : PC port map(P => in_pc, Q => out_pc, reset => reset_pc, clk => masterClock);
+	
+	-- Adders Part
 	AdderPC : Adder port map(A => X"00000004", B => PC_adder, Cin => "0", C => resultPC_adder);
-	AdderJumps :  Adder port map(A => PC_adder, B => Imediato_adder, Cin => "0", C => resultPCJump_adder);
-	--MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, )
+	AdderJumps :  Adder port map(A => PC_adder, B => std_logic_vector(imm_generated), Cin => "0", C => resultPCJump_adder);
+	
+	-- Muxs Part
+	MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, S => (Branch_control and zero_ula), Z => in_pc);
+	MuxULA : MUX port map(A => ro2_xregs, B => std_logic_vector(imm_generated), S => ALUSrc_control, Z => B_ula);
+	MuxMEM : MUX port map(A => resultUla, B => q_data, S => MemToReg_control, Z => WriteDataRegisters_mux);
+	
+	-- Memory of Instructions Part
+	Mem_Instrunctions : memIntr port map(address => out_pc(9 downto 2), clock => flipflopClock, wren => '0', data => X"00000000", q => q_instr);
+	
+	-- Control Part
+	Controller : control port map(opcode => (q_instr(6 downto 0)), Branch => Branch_control, MemRead => MemRead_control, MemToReg => MemToReg_control, ALUop => ALUop_control, MemWrite => MemWrite_control, ALUSrc => ALUSrc_control, RegWrite => RegWrite_control);
+	
+	-- Registers Part
+	RegBank : xregs port map(clk => flipflopClock, wren => RegWrite_control, rst => '0', rs1 => (q_instr(19 downto 15)), rs2 => (q_instr(24 downto 20)), rd => (q_instr(11 downto 7)), data => WriteDataRegisters_mux, ro1 => ro1_xregs, ro2 => ro2_xregs);
+	
+	-- Immediate Generator Part
+	Imm_Gen : genImm32 port map(instr => q_instr, imm32 => imm_generated);
+	
+	-- ULA Control Part
+	ULA_Controller : ULA_control port map(instr_part => (q_instr(30)&q_instr(14 downto 12)), aluop => ALUop_control, aluctr => aluctr_control);
+	
+	-- ULA Part
+	ALU : ula port map(opcode => aluctr_control, A => ro1_xregs, B => B_ula, Z => resultUla, zero => zero_ula);
+	
+	-- Memory of Data Part
+	Mem_Data: memData port map(address => resultUla(9 downto 2), clock => flipflopClock, wren => MemWrite_control, data => ro2_xregs, q => q_data);
+	
 end processor_arch;

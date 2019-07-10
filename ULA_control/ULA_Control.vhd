@@ -1,23 +1,24 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.rv_pkg.all;
 
 entity ULA_control is	
 	port(
-		intr_part : in std_logic_vector(3 downto 0);
+		instr_part : in std_logic_vector(3 downto 0);
 		aluop: in std_logic_vector(1 downto 0);
-		aluctr: out std_logic_vector(3 downto 0));
+		aluctr: out ULA_OP);
 end ULA_control;
 
 architecture ULA_control_arch of ULA_control is
 	signal funct7_sign: std_logic;
 	signal funct3_sign: std_logic_vector(2 downto 0);
 	signal aluop_sign: std_logic_vector(1 downto 0);
-	signal aluctr_sign: std_logic_vector(3 downto 0);
+	signal aluctr_sign: ULA_OP;
 begin	
 
-	funct3_sign <= (intr_part(1)&intr_part(1)&intr_part(0));
-	funct7_sign <= intr_part(3);
+	funct3_sign <= (instr_part(1)&instr_part(1)&instr_part(0));
+	funct7_sign <= instr_part(3);
 	aluop_sign  <= aluop;
 	aluctr		<= aluctr_sign;
 	
@@ -25,38 +26,38 @@ begin
 	begin
 		case aluop_sign is 
 			-- ADD
-			when "00" => aluctr_sign <= "0000";
+			when "00" => aluctr_sign <= ADD_OP;
 			-- SUB
-			when "01" => aluctr_sign <= "0001";
+			when "01" => aluctr_sign <= SUB_OP;
 			-- R-type
 			when "10" => case funct3_sign is
 								when "000" => -- ADD
 												  if (funct7_sign = '0') 
-														then aluctr_sign <= "0000";
+														then aluctr_sign <= ADD_OP;
 												  -- SUB
-												  else aluctr_sign <= "0001";
+												  else aluctr_sign <= SUB_OP;
 												  end if;
 								-- SLL
-								when "001" => aluctr_sign <= "0101";
+								when "001" => aluctr_sign <= SLL_OP;
 								-- SLT
-								when "010" => aluctr_sign <= "1000";
+								when "010" => aluctr_sign <= SLT_OP;
 								-- SLTU
-								when "011" => aluctr_sign <= "1001";
+								when "011" => aluctr_sign <= SLTU_OP;
 								-- XOR
-								when "100" => aluctr_sign <= "0100";
+								when "100" => aluctr_sign <= XOR_OP;
 								when "101" => -- SRL
 												  if (funct7_sign = '0') 
-														then aluctr_sign <= "0110";
+														then aluctr_sign <= SRL_OP;
 												  -- SRA
-												  else aluctr_sign <= "0111";
+												  else aluctr_sign <= SRA_OP;
 												  end if;
 								-- OR
-								when "110" => aluctr_sign <= "0011";
+								when "110" => aluctr_sign <= OR_OP;
 								-- AND
-								when "111" => aluctr_sign <= "0010";
-								when others => aluctr_sign <= "0000";
+								when "111" => aluctr_sign <= AND_OP;
+								when others => aluctr_sign <= ADD_OP;
 							 end case;
-			when others => aluctr_sign <= "0000";
+			when others => aluctr_sign <= ADD_OP;
 		end case;
 	end process;
 end ULA_control_arch;
