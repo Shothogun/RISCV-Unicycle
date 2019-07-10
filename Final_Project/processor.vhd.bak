@@ -1,0 +1,10 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.rv_pkg.all;
+use work.reg_pkg.all;
+
+entity processor is
+	port(
+	masterClock : in std_logic;
+	)

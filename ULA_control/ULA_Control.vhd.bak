@@ -4,20 +4,21 @@ use ieee.numeric_std.all;
 
 entity ULA_control is	
 	port(
-		intr_part : in std_logic_vector(3 downto 0);
+		funct7: in std_logic_vector(6 downto 0);
+		funct3: in std_logic_vector(2 downto 0);
 		aluop: in std_logic_vector(1 downto 0);
 		aluctr: out std_logic_vector(3 downto 0));
 end ULA_control;
 
 architecture ULA_control_arch of ULA_control is
-	signal funct7_sign: std_logic;
+	signal funct7_sign: std_logic_vector(6 downto 0);
 	signal funct3_sign: std_logic_vector(2 downto 0);
 	signal aluop_sign: std_logic_vector(1 downto 0);
 	signal aluctr_sign: std_logic_vector(3 downto 0);
 begin	
 
-	funct3_sign <= (intr_part(1)&intr_part(1)&intr_part(0));
-	funct7_sign <= intr_part(3);
+	funct3_sign <= funct3;
+	funct7_sign <= funct7;
 	aluop_sign  <= aluop;
 	aluctr		<= aluctr_sign;
 	
@@ -31,7 +32,7 @@ begin
 			-- R-type
 			when "10" => case funct3_sign is
 								when "000" => -- ADD
-												  if (funct7_sign = '0') 
+												  if (funct7(5)= '0') 
 														then aluctr_sign <= "0000";
 												  -- SUB
 												  else aluctr_sign <= "0001";
@@ -45,7 +46,7 @@ begin
 								-- XOR
 								when "100" => aluctr_sign <= "0100";
 								when "101" => -- SRL
-												  if (funct7_sign = '0') 
+												  if (funct7_sign(5)= '0') 
 														then aluctr_sign <= "0110";
 												  -- SRA
 												  else aluctr_sign <= "0111";
