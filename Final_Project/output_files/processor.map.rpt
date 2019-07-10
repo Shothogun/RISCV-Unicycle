@@ -1,5 +1,5 @@
 Analysis & Synthesis report for processor
-Wed Jul 10 01:33:08 2019
+Wed Jul 10 17:40:25 2019
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,8 +16,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Analysis & Synthesis IP Cores Summary
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated
- 12. Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated
+ 11. Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated
+ 12. Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated
  13. Parameter Settings for User Entity Instance: memIntr:Mem_Instrunctions|altsyncram:altsyncram_component
  14. Parameter Settings for User Entity Instance: ula:ALU
  15. Parameter Settings for User Entity Instance: memData:Mem_Data|altsyncram:altsyncram_component
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 10 01:33:08 2019           ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 10 17:40:25 2019           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; processor                                       ;
 ; Top-level Entity Name              ; processor                                       ;
@@ -200,8 +200,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; altrom.inc                       ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; d:/quartus/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_sti1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_sti1.tdf                    ;         ;
-; db/altsyncram_psi1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_psi1.tdf                    ;         ;
+; db/altsyncram_2ui1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_2ui1.tdf                    ;         ;
+; db/altsyncram_nsi1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/ProjetoFinal/Final_Project/db/altsyncram_nsi1.tdf                    ;         ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
 
 
@@ -1291,7 +1291,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +-----------------------------------------------------------------------------------------------------------------+
-; Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated ;
+; Source assignments for memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated ;
 +---------------------------------+--------------------+------+---------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                ;
 +---------------------------------+--------------------+------+---------------------------------------------------+
@@ -1300,7 +1300,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +--------------------------------------------------------------------------------------------------------+
-; Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated ;
+; Source assignments for memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated ;
 +---------------------------------+--------------------+------+------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                       ;
 +---------------------------------+--------------------+------+------------------------------------------+
@@ -1351,7 +1351,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                    ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
-; INIT_FILE                          ; memIntrInit.mif      ; Untyped                                    ;
+; INIT_FILE                          ; Colors_text.mif      ; Untyped                                    ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                    ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                    ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                    ;
@@ -1364,7 +1364,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                    ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                    ;
 ; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                                    ;
-; CBXI_PARAMETER                     ; altsyncram_sti1      ; Untyped                                    ;
+; CBXI_PARAMETER                     ; altsyncram_2ui1      ; Untyped                                    ;
 +------------------------------------+----------------------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1422,7 +1422,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
-; INIT_FILE                          ; memDataInit.mif      ; Untyped                           ;
+; INIT_FILE                          ; Colors_data.mif      ; Untyped                           ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
@@ -1435,7 +1435,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
 ; DEVICE_FAMILY                      ; Cyclone IV GX        ; Untyped                           ;
-; CBXI_PARAMETER                     ; altsyncram_psi1      ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_nsi1      ; Untyped                           ;
 +------------------------------------+----------------------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1547,7 +1547,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jul 10 01:33:06 2019
+    Info: Processing started: Wed Jul 10 17:40:23 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file /quartus/projetofinal/ula_control/ula_control.vhd
@@ -1588,10 +1588,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file /quartu
 Info (12021): Found 2 design units, including 1 entities, in source file processor.vhd
     Info (12022): Found design unit 1: processor-processor_arch
     Info (12023): Found entity 1: processor
+Info (12021): Found 2 design units, including 1 entities, in source file processor_tb.vhd
+    Info (12022): Found design unit 1: processor_tb-processor_arch
+    Info (12023): Found entity 1: processor_tb
 Info (12127): Elaborating entity "processor" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at processor.vhd(19): used implicit default value for signal "reset_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10036): Verilog HDL or VHDL warning at processor.vhd(50): object "MemRead_control" assigned a value but never read
 Warning (10541): VHDL Signal Declaration warning at processor.vhd(66): used implicit default value for signal "PC_adder" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at processor.vhd(140): used explicit default value for signal "and_Branch" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at processor.vhd(143): used explicit default value for signal "concat_instr" because signal was never assigned a value
 Info (12128): Elaborating entity "PC" for hierarchy "PC:RegisterPC"
 Info (12128): Elaborating entity "Adder" for hierarchy "Adder:AdderPC"
 Info (12128): Elaborating entity "MUX" for hierarchy "MUX:MuxWherePC"
@@ -1601,7 +1606,7 @@ Info (12130): Elaborated megafunction instantiation "memIntr:Mem_Instrunctions|a
 Info (12133): Instantiated megafunction "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component" with the following parameter:
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "memIntrInit.mif"
+    Info (12134): Parameter "init_file" = "Colors_text.mif"
     Info (12134): Parameter "intended_device_family" = "Cyclone IV GX"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
     Info (12134): Parameter "lpm_type" = "altsyncram"
@@ -1614,9 +1619,9 @@ Info (12133): Instantiated megafunction "memIntr:Mem_Instrunctions|altsyncram:al
     Info (12134): Parameter "widthad_a" = "8"
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sti1.tdf
-    Info (12023): Found entity 1: altsyncram_sti1
-Info (12128): Elaborating entity "altsyncram_sti1" for hierarchy "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2ui1.tdf
+    Info (12023): Found entity 1: altsyncram_2ui1
+Info (12128): Elaborating entity "altsyncram_2ui1" for hierarchy "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated"
 Info (12128): Elaborating entity "control" for hierarchy "control:Controller"
 Info (12128): Elaborating entity "xregs" for hierarchy "xregs:RegBank"
 Warning (10492): VHDL Process Statement warning at xregs.vhd(34): signal "regs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -1629,7 +1634,7 @@ Info (12130): Elaborated megafunction instantiation "memData:Mem_Data|altsyncram
 Info (12133): Instantiated megafunction "memData:Mem_Data|altsyncram:altsyncram_component" with the following parameter:
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "memDataInit.mif"
+    Info (12134): Parameter "init_file" = "Colors_data.mif"
     Info (12134): Parameter "intended_device_family" = "Cyclone IV GX"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
     Info (12134): Parameter "lpm_type" = "altsyncram"
@@ -1642,75 +1647,75 @@ Info (12133): Instantiated megafunction "memData:Mem_Data|altsyncram:altsyncram_
     Info (12134): Parameter "widthad_a" = "8"
     Info (12134): Parameter "width_a" = "32"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_psi1.tdf
-    Info (12023): Found entity 1: altsyncram_psi1
-Info (12128): Elaborating entity "altsyncram_psi1" for hierarchy "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_nsi1.tdf
+    Info (12023): Found entity 1: altsyncram_nsi1
+Info (12128): Elaborating entity "altsyncram_nsi1" for hierarchy "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated"
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[8]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[9]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[10]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[11]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[12]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[13]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[14]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[15]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[16]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[17]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[18]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[19]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[20]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[21]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[22]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[23]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[24]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[25]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[26]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[27]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[28]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[29]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[30]"
-        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_psi1:auto_generated|q_a[31]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[8]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[9]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[10]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[11]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[12]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[13]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[14]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[15]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[16]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[17]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[18]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[19]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[20]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[21]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[22]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[23]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[24]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[25]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[26]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[27]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[28]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[29]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[30]"
-        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_sti1:auto_generated|q_a[31]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "memData:Mem_Data|altsyncram:altsyncram_component|altsyncram_nsi1:auto_generated|q_a[31]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "memIntr:Mem_Instrunctions|altsyncram:altsyncram_component|altsyncram_2ui1:auto_generated|q_a[31]"
 Info (17049): 1096 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1720,9 +1725,9 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
-    Info: Peak virtual memory: 4714 megabytes
-    Info: Processing ended: Wed Jul 10 01:33:08 2019
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 4722 megabytes
+    Info: Processing ended: Wed Jul 10 17:40:25 2019
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

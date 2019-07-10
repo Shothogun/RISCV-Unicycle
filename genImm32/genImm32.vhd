@@ -27,6 +27,7 @@ begin
 			when X"23" => aux_imm <= (resize(signed(instr(31 downto 25)&instr(11 downto 7)), 32));
 			when X"63" => aux_imm <= (resize(signed(instr(31)&instr(7)&instr(30 downto 25)&instr(11 downto 8)&'0'), 32));
 			when X"37" => aux_imm <= (signed(shift_left((resize(signed(instr(31 downto 12)), 32)), 12)) and X"FFFFF000");
+			when X"17" => aux_imm <= (signed(shift_left((resize(signed(instr(31 downto 12)), 32)), 12)) and X"FFFFF000");
 			when X"6F" => aux_imm <= (resize(signed(instr(31)&instr(19 downto 12)&instr(20)&instr(30 downto 21)&'0'), 32));
 			when others => aux_imm <= (resize(signed(instr(31 downto 20)), 32));
 		end case;

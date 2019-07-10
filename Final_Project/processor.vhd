@@ -136,8 +136,18 @@ component ULA_control is
 		aluctr: out ULA_OP);
 end component;
 
-begin
+-- And Ports
+signal and_Branch : std_logic := (Branch_control and zero_ula);
 
+-- Instruction Ports
+signal concat_instr : std_logic_vector(3 downto 0) := (q_instr(30)&q_instr(14 downto 12));
+
+
+-- Signals for Processor
+-- signal masterClock, flipflopClock : std_logic;
+
+begin
+	
 	-- PC Part
 	RegisterPC : PC port map(P => in_pc, Q => out_pc, reset => reset_pc, clk => masterClock);
 	
@@ -146,7 +156,7 @@ begin
 	AdderJumps :  Adder port map(A => PC_adder, B => std_logic_vector(imm_generated), Cin => "0", C => resultPCJump_adder);
 	
 	-- Muxs Part
-	MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, S => (Branch_control and zero_ula), Z => in_pc);
+	MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, S => and_Branch, Z => in_pc);
 	MuxULA : MUX port map(A => ro2_xregs, B => std_logic_vector(imm_generated), S => ALUSrc_control, Z => B_ula);
 	MuxMEM : MUX port map(A => resultUla, B => q_data, S => MemToReg_control, Z => WriteDataRegisters_mux);
 	
@@ -163,7 +173,7 @@ begin
 	Imm_Gen : genImm32 port map(instr => q_instr, imm32 => imm_generated);
 	
 	-- ULA Control Part
-	ULA_Controller : ULA_control port map(instr_part => (q_instr(30)&q_instr(14 downto 12)), aluop => ALUop_control, aluctr => aluctr_control);
+	ULA_Controller : ULA_control port map(instr_part => concat_instr, aluop => ALUop_control, aluctr => aluctr_control);
 	
 	-- ULA Part
 	ALU : ula port map(opcode => aluctr_control, A => ro1_xregs, B => B_ula, Z => resultUla, zero => zero_ula);
