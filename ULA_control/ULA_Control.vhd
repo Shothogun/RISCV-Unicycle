@@ -17,7 +17,7 @@ architecture ULA_control_arch of ULA_control is
 	signal aluctr_sign: ULA_OP;
 begin	
 
-	funct3_sign <= (instr_part(1)&instr_part(1)&instr_part(0));
+	funct3_sign <= (instr_part(2)&instr_part(1)&instr_part(0));
 	funct7_sign <= instr_part(3);
 	aluop_sign  <= aluop;
 	aluctr		<= aluctr_sign;
