@@ -14,19 +14,20 @@ end processor;
 architecture processor_arch of processor is
 
 -- Signals PC
-signal out_pc : std_logic_vector(31 downto 0);
+signal out_pc : std_logic_vector(31 downto 0) := X"00000000";
 signal in_pc : std_logic_vector(31 downto 0) := X"00000000";
-signal reset_pc : std_logic;
+signal reset_pc : std_logic := '1';
 
 component PC is	
 	port(
-		P : in std_logic_vector(31 downto 0);
+		P : in std_logic_vector(31 downto 0) := X"00000000";
 		reset, clk: in std_logic;
-		Q: out std_logic_vector(31 downto 0));
+		Q: out std_logic_vector(31 downto 0) := X"00000000");
 end component;
 
 -- Signals XREGS
-signal ro1_xregs, ro2_xregs : std_logic_vector(31 downto 0);
+signal ro2_xregs : std_logic_vector(31 downto 0) := X"00000000";
+signal ro1_xregs : std_logic_vector(31 downto 0) := X"00000000";
 
 component xregs is
 	port (
@@ -37,7 +38,7 @@ component xregs is
 end component;
 
 -- Signals MUX MEM
-signal WriteDataRegisters_mux : std_logic_vector(31 downto 0);
+signal WriteDataRegisters_mux : std_logic_vector(31 downto 0) := X"00000000";
 
 component MUX is	
 	port(
@@ -47,7 +48,8 @@ component MUX is
 end component;
 
 -- Signals Control
-signal Branch_control, MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
+signal MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
+signal Branch_control : std_logic := '0';
 signal ALUop_control : std_logic_vector(1 downto 0);
 
 component control is	
@@ -63,10 +65,10 @@ component control is
 end component;
 
 -- Signals Adder PC
-signal PC_adder, resultPC_adder : std_logic_vector(31 downto 0);
+signal resultPC_adder : std_logic_vector(31 downto 0) := X"00000000";
 
 -- Signals Adder Jumps
-signal resultPCJump_adder : std_logic_vector(31 downto 0);
+signal resultPCJump_adder : std_logic_vector(31 downto 0) := X"00000000";
 
 component Adder is	
 	port(
@@ -77,8 +79,9 @@ component Adder is
 end component;
 
 -- Signals for ULA
-signal A_ula, B_ula, resultUla: std_logic_vector(31 downto 0);
-signal zero_ula : std_logic;
+signal B_ula : std_logic_vector(31 downto 0) := X"00000000";
+signal resultUla: std_logic_vector(31 downto 0) := X"00000000";
+signal zero_ula : std_logic := '0';
 
 component ula is
 	generic (WSIZE : natural := 32);
@@ -99,7 +102,7 @@ component genImm32 is
 end component;
 
 -- Signals for MEMIntr
-signal q_instr : std_logic_vector(31 downto 0);
+signal q_instr : std_logic_vector(31 downto 0) := X"00000000";
 
 component memIntr IS
 	PORT
@@ -144,7 +147,7 @@ signal concat_instr : std_logic_vector(3 downto 0) := (q_instr(30)&q_instr(14 do
 
 
 -- Signals for Processor
--- signal masterClock, flipflopClock : std_logic;
+signal masterClock, flipflopClock : std_logic := '0';
 
 begin
 	
@@ -152,8 +155,8 @@ begin
 	RegisterPC : PC port map(P => in_pc, Q => out_pc, reset => reset_pc, clk => masterClock);
 	
 	-- Adders Part
-	AdderPC : Adder port map(A => X"00000004", B => PC_adder, Cin => "0", C => resultPC_adder);
-	AdderJumps :  Adder port map(A => PC_adder, B => std_logic_vector(imm_generated), Cin => "0", C => resultPCJump_adder);
+	AdderPC : Adder port map(A => X"00000004", B => out_pc, Cin => "0", C => resultPC_adder);
+	AdderJumps :  Adder port map(A => out_pc, B => std_logic_vector(imm_generated), Cin => "0", C => resultPCJump_adder);
 	
 	-- Muxs Part
 	MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, S => and_Branch, Z => in_pc);

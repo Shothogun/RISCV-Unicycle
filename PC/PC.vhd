@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity PC is	
 	port(
-		P : in std_logic_vector(31 downto 0);
+		P : in std_logic_vector(31 downto 0) := X"00000000";
 		reset, clk: in std_logic;
-		Q: out std_logic_vector(31 downto 0));
+		Q: out std_logic_vector(31 downto 0) := X"00000000");
 end PC;
 
 architecture PC_arch of PC is
@@ -18,8 +18,10 @@ begin
 	
 	process(clk, reset)
 	begin
-		if reset = '0'				then				Q_sign <= X"00000000";
-		elsif rising_edge(clk) 	then				Q_sign <= P_sign;
+		if reset = '1'				then				Q_sign <= X"00000000";
+		else
+			if rising_edge(clk) 	then				Q_sign <= P_sign;
+			end if;
 		end if;
 	end process;
 end PC_arch;

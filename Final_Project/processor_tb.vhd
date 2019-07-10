@@ -17,19 +17,20 @@ component processor is
 end component;
 
 -- Signals PC
-signal out_pc : std_logic_vector(31 downto 0);
-signal in_pc : std_logic_vector(31 downto 0);
-signal reset_pc : std_logic;
+signal out_pc : std_logic_vector(31 downto 0) := X"00000000";
+signal in_pc : std_logic_vector(31 downto 0) := X"00000000";
+signal reset_pc : std_logic := '1';
 
 component PC is	
 	port(
-		P : in std_logic_vector(31 downto 0);
+		P : in std_logic_vector(31 downto 0) := X"00000000";
 		reset, clk: in std_logic;
-		Q: out std_logic_vector(31 downto 0));
+		Q: out std_logic_vector(31 downto 0) := X"00000000");
 end component;
 
 -- Signals XREGS
-signal ro1_xregs, ro2_xregs : std_logic_vector(31 downto 0);
+signal ro2_xregs : std_logic_vector(31 downto 0) := X"00000000";
+signal ro1_xregs : std_logic_vector(31 downto 0) := X"00000000";
 
 component xregs is
 	port (
@@ -40,7 +41,7 @@ component xregs is
 end component;
 
 -- Signals MUX MEM
-signal WriteDataRegisters_mux : std_logic_vector(31 downto 0);
+signal WriteDataRegisters_mux : std_logic_vector(31 downto 0) := X"00000000";
 
 component MUX is	
 	port(
@@ -50,7 +51,8 @@ component MUX is
 end component;
 
 -- Signals Control
-signal Branch_control, MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
+signal MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
+signal Branch_control : std_logic := '0';
 signal ALUop_control : std_logic_vector(1 downto 0);
 
 component control is	
@@ -66,10 +68,10 @@ component control is
 end component;
 
 -- Signals Adder PC
-signal resultPC_adder : std_logic_vector(31 downto 0);
+signal resultPC_adder : std_logic_vector(31 downto 0) := X"00000000";
 
 -- Signals Adder Jumps
-signal resultPCJump_adder : std_logic_vector(31 downto 0);
+signal resultPCJump_adder : std_logic_vector(31 downto 0) := X"00000000";
 
 component Adder is	
 	port(
@@ -80,8 +82,9 @@ component Adder is
 end component;
 
 -- Signals for ULA
-signal A_ula, B_ula, resultUla: std_logic_vector(31 downto 0);
-signal zero_ula : std_logic;
+signal B_ula : std_logic_vector(31 downto 0) := X"00000000";
+signal resultUla: std_logic_vector(31 downto 0) := X"00000000";
+signal zero_ula : std_logic := '0';
 
 component ula is
 	generic (WSIZE : natural := 32);
@@ -102,7 +105,7 @@ component genImm32 is
 end component;
 
 -- Signals for MEMIntr
-signal q_instr : std_logic_vector(31 downto 0);
+signal q_instr : std_logic_vector(31 downto 0) := X"00000000";
 
 component memIntr IS
 	PORT
@@ -184,34 +187,8 @@ begin
 	-- Memory of Data Part
 	Mem_Data: memData port map(address => resultUla(9 downto 2), clock => flipflopClock, wren => MemWrite_control, data => ro2_xregs, q => q_data);
 	
-	i1 : processor
-		port map (
-			masterClock => masterClock,
-			flipflopClock => flipflopClock
-			);
-	
 	masterClock <= not masterClock after 1 sec;
 	flipflopClock <= not flipflopClock after 0.1 sec;
-	
-	Execution : process
-	begin
-	
-		-- Initialization Clocks
-		--masterClock <= '0';
-		--flipflopClock <= '0';
-		
-		-- Initialization PC
-		in_pc <= X"00000000";
-		out_pc <= X"00000000";
-		reset_pc <= '0';
-		
-		-- Initialization XREGS
-		ro1_xregs <= X"00000000";
-		ro2_xregs <= X"00000000";
-		
-		-- Initialization Mux
-		WriteDataRegisters_mux <= X"00000000";
-		
-		wait for 2 sec;
-	end process;
+	reset_pc <= '0' after 0.5 sec;
+
 end processor_arch;

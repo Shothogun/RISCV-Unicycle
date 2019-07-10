@@ -126,11 +126,11 @@
 # -- Loading package reg_pkg
 # -- Compiling entity processor_tb
 # -- Compiling architecture processor_arch of processor_tb
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(143): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(146): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(143): (vcom-1013) Initial value of "and_Branch" depends on value of signal "zero_ula".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(146): (vcom-1013) Initial value of "and_Branch" depends on value of signal "zero_ula".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(146): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(149): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
 # 
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneiv_hssi -L cycloneiv_pcie_hip -L cycloneiv -L rtl_work -L work -voptargs="+acc"  processor_tb
@@ -157,30 +157,13 @@
 # Loading work.ula_control(ula_control_arch)
 # Loading work.ula(ula_arch)
 # Loading work.memdata(syn)
-# Loading work.processor(processor_arch)
 # 
 # add wave *
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 3 sec
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderPC
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderPC
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderPC
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/i1/AdderPC
+# run 10 sec
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -197,38 +180,24 @@
 #    Time: 0 ps  Iteration: 0  Instance: /processor_tb/AdderPC
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /processor_tb/AdderPC
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/i1/AdderPC
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/i1/AdderPC
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 1  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 1  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/AdderJumps
+#    Time: 0 ps  Iteration: 2  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/AdderPC
+#    Time: 0 ps  Iteration: 2  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor_tb/AdderPC
+#    Time: 0 ps  Iteration: 2  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 4  Instance: /processor_tb/AdderJumps
+#    Time: 0 ps  Iteration: 2  Instance: /processor_tb/AdderPC
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 4  Instance: /processor_tb/AdderJumps
+#    Time: 0 ps  Iteration: 2  Instance: /processor_tb/AdderPC
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 5  Instance: /processor_tb/i1/AdderJumps
+#    Time: 0 ps  Iteration: 3  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 5  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
+#    Time: 0 ps  Iteration: 3  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
@@ -238,198 +207,6 @@
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
+#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Data/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 9  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 9  Instance: /processor_tb/i1/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 1900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2100 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2300 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2500 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2700 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 2900 ms  Iteration: 1  Instance: /processor_tb/i1/Mem_Instrunctions/altsyncram_component
+#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
