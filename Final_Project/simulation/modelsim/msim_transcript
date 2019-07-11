@@ -117,19 +117,29 @@
 # -- Loading package reg_pkg
 # -- Compiling entity processor
 # -- Compiling architecture processor_arch of processor
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(95): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(106): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(154): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(165): (vcom-1013) Initial value of "even_value" depends on value of signal "resultUla".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(154): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(168): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(157): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(168): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(158): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "signal_answer".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(171): (vcom-1013) Initial value of "or_Branch" depends on value of signal "and_Branch".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(161): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(171): (vcom-1013) Initial value of "or_Branch" depends on value of signal "isJAL_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(164): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(172): (vcom-1013) Initial value of "or_JAL_JALR" depends on value of signal "isJAL_control".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(172): (vcom-1013) Initial value of "or_JAL_JALR" depends on value of signal "isJALR_control".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(175): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(176): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(179): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(182): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
 # 
 # 
 # vcom -93 -work work {D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd}
@@ -142,19 +152,29 @@
 # -- Loading package reg_pkg
 # -- Compiling entity processor_tb
 # -- Compiling architecture processor_arch of processor_tb
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(98): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(109): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(157): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(168): (vcom-1013) Initial value of "even_value" depends on value of signal "resultUla".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(157): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(171): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(160): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(171): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(161): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "resultUla".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(174): (vcom-1013) Initial value of "or_Branch" depends on value of signal "and_Branch".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(164): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(174): (vcom-1013) Initial value of "or_Branch" depends on value of signal "isJAL_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(168): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(175): (vcom-1013) Initial value of "or_JAL_JALR" depends on value of signal "isJAL_control".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(175): (vcom-1013) Initial value of "or_JAL_JALR" depends on value of signal "isJALR_control".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(178): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(179): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(182): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(186): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
 # 
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneiv_hssi -L cycloneiv_pcie_hip -L cycloneiv -L rtl_work -L work -voptargs="+acc"  processor_tb
