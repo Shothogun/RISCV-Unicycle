@@ -72,6 +72,14 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity genImm32
 # -- Compiling architecture genImm32_arch of genImm32
+# vcom -93 -work work {D:/Quartus/ProjetoFinal/MUX/MUX_Branchs.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity MUX_Branchs
+# -- Compiling architecture MUX_Branchs_arch of MUX_Branchs
 # vcom -93 -work work {D:/Quartus/ProjetoFinal/ULA_control/ULA_Control.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
@@ -109,11 +117,19 @@
 # -- Loading package reg_pkg
 # -- Compiling entity processor
 # -- Compiling architecture processor_arch of processor
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(140): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(95): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(140): (vcom-1013) Initial value of "and_Branch" depends on value of signal "zero_ula".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(154): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(143): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(154): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(157): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(158): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "signal_answer".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(161): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor.vhd(164): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
 # 
 # 
 # vcom -93 -work work {D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd}
@@ -126,11 +142,19 @@
 # -- Loading package reg_pkg
 # -- Compiling entity processor_tb
 # -- Compiling architecture processor_arch of processor_tb
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(146): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(98): (vcom-1013) Initial value of "inverted_zero_ula" depends on value of signal "zero_ula".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(146): (vcom-1013) Initial value of "and_Branch" depends on value of signal "zero_ula".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(157): (vcom-1013) Initial value of "and_Branch" depends on value of signal "Branch_control".
 # 
-# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(149): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(157): (vcom-1013) Initial value of "and_Branch" depends on value of signal "MuxBranchResult".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(160): (vcom-1013) Initial value of "signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(161): (vcom-1013) Initial value of "inverted_signal_answer" depends on value of signal "resultUla".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(164): (vcom-1013) Initial value of "concat_instr" depends on value of signal "q_instr".
+# 
+# ** Warning: [9] D:/Quartus/ProjetoFinal/Final_Project/processor_tb.vhd(168): (vcom-1013) Initial value of "inverterMasterClock" depends on value of signal "masterClock".
 # 
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneiv_hssi -L cycloneiv_pcie_hip -L cycloneiv -L rtl_work -L work -voptargs="+acc"  processor_tb
@@ -146,6 +170,7 @@
 # Loading ieee.std_logic_arith(body)
 # Loading work.adder(adder_arch)
 # Loading work.mux(mux_arch)
+# Loading work.mux_branchs(mux_branchs_arch)
 # Loading work.memintr(syn)
 # Loading ieee.std_logic_unsigned(body)
 # Loading altera_mf.altera_common_conversion(body)
@@ -163,7 +188,11 @@
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 10 sec
+# run 14 sec
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/RegBank
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_tb/RegBank
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -198,15 +227,3 @@
 #    Time: 0 ps  Iteration: 3  Instance: /processor_tb/AdderJumps
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 3  Instance: /processor_tb/AdderJumps
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 100 ms  Iteration: 1  Instance: /processor_tb/Mem_Data/altsyncram_component

@@ -57,6 +57,21 @@ begin
 								when "111" => aluctr_sign <= AND_OP;
 								when others => aluctr_sign <= ADD_OP;
 							 end case;
+			-- ILA-type
+			when "11" => case funct3_sign is
+								when "000" => aluctr_sign <= ADD_OP;
+								when "010" => aluctr_sign <= SLT_OP;
+								when "011" => aluctr_sign <= SLTU_OP;
+								when "100" => aluctr_sign <= XOR_OP;
+								when "110" => aluctr_sign <= OR_OP;
+								when "111" => aluctr_sign <= AND_OP;
+								when "001" => aluctr_sign <= SLL_OP;
+								when others => 
+													if (funct7_sign = '0') 
+														then aluctr_sign <= SRL_OP;
+												  else aluctr_sign <= SRA_OP;
+												  end if;
+							 end case;
 			when others => aluctr_sign <= ADD_OP;
 		end case;
 	end process;

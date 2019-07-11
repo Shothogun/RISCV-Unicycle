@@ -43,8 +43,8 @@ begin
 				MemToReg_sign <= '0';
 				ALUop_sign <= "00";
 				MemWrite_sign <= '0';
-				ALUSrc_sign <= '0';
-				RegWrite_sign <= '0';	
+				ALUSrc_sign <= '1';
+				RegWrite_sign <= '1';	
 			-- AUIPC-type
 			when "0010111" =>
 				Branch_sign <= '0';
@@ -74,22 +74,22 @@ begin
 				RegWrite_sign <= '0';
 			-- JAL-type
 			when "1101111" =>
-				Branch_sign <= '0';
+				Branch_sign <= '1';
 				MemRead_sign <= '0';
-				MemToReg_sign <= '0';
+				MemToReg_sign <= '1';
 				ALUop_sign <= "00";
 				MemWrite_sign <= '0';
-				ALUSrc_sign <= '0';
+				ALUSrc_sign <= '1';
 				RegWrite_sign <= '0';
 			-- JALR-type
 			when "1100111" =>
-				Branch_sign <= '0';
-				MemRead_sign <= '0';
-				MemToReg_sign <= '0';
+				Branch_sign <= '1';
+				MemRead_sign <= '1';
+				MemToReg_sign <= '1';
 				ALUop_sign <= "00";
 				MemWrite_sign <= '0';
-				ALUSrc_sign <= '0';
-				RegWrite_sign <= '0';		
+				ALUSrc_sign <= '1';
+				RegWrite_sign <= '1';		
 			-- Store-type
 			when "0100011" =>
 				Branch_sign <= '0';
@@ -104,10 +104,10 @@ begin
 				Branch_sign <= '0';
 				MemRead_sign <= '0';
 				MemToReg_sign <= '0';
-				ALUop_sign <= "00";
+				ALUop_sign <= "11";
 				MemWrite_sign <= '0';
-				ALUSrc_sign <= '0';
-				RegWrite_sign <= '0';
+				ALUSrc_sign <= '1';
+				RegWrite_sign <= '1';
 			-- Reg-type
 			when "0110011" =>
 				Branch_sign <= '0';
@@ -135,7 +135,5 @@ begin
 				ALUSrc_sign <= '0';
 				RegWrite_sign <= '0';
 		end case;
-	end process;
-
-	
+	end process;	
 end control_arch;

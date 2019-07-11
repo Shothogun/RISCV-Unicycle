@@ -17,6 +17,9 @@ signal regs : Reg := (others => (others => '0'));
 
 begin
 	
+	ro1 <= to_stdlogicvector(regs(to_integer(unsigned(rs1))));
+	ro2 <= to_stdlogicvector(regs(to_integer(unsigned(rs2))));
+	
 	proc_regs:process(clk, rst, wren)
 	begin
 		if (rst = '1') then
@@ -26,9 +29,6 @@ begin
 				if( rd /= "00000") then
 					regs(to_integer(unsigned(rd))) <= to_bitvector(data);
 				end if;
-			else
-				ro1 <= to_stdlogicvector(regs(to_integer(unsigned(rs1))));
-				ro2 <= to_stdlogicvector(regs(to_integer(unsigned(rs2))));
 			end if;
 		else
 			regs <= regs;

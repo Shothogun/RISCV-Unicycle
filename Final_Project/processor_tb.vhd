@@ -11,8 +11,7 @@ architecture processor_arch of processor_tb is
 
 component processor is
 	port(
-	masterClock : in std_logic;
-	flipflopClock : in std_logic
+	masterClock : in std_logic
 	);
 end component;
 
@@ -50,9 +49,20 @@ component MUX is
 		Z: out std_logic_vector(31 downto 0));
 end component;
 
+-- Signals MUX BRANCHS
+signal MuxBranchResult : std_logic;
+
+component MUX_Branchs is	
+	port(
+		A,B,C,D : in std_logic;
+		S: in std_logic_vector(2 downto 0);
+		Z: out std_logic);
+end component;
+
 -- Signals Control
-signal MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control, RegWrite_control : std_logic; 
+signal MemRead_control, MemToReg_control, ALUSrc_control, MemWrite_control : std_logic; 
 signal Branch_control : std_logic := '0';
+signal RegWrite_control : std_logic := '0';
 signal ALUop_control : std_logic_vector(1 downto 0);
 
 component control is	
@@ -85,6 +95,7 @@ end component;
 signal B_ula : std_logic_vector(31 downto 0) := X"00000000";
 signal resultUla: std_logic_vector(31 downto 0) := X"00000000";
 signal zero_ula : std_logic := '0';
+signal inverted_zero_ula : std_logic := (not zero_ula);
 
 component ula is
 	generic (WSIZE : natural := 32);
@@ -143,14 +154,19 @@ component ULA_control is
 end component;
 
 -- And Ports
-signal and_Branch : std_logic := (Branch_control and zero_ula);
+signal and_Branch : std_logic := (Branch_control and MuxBranchResult);
+
+-- Signals for BLT/BGE
+signal signal_answer : std_logic := resultUla(31);
+signal inverted_signal_answer : std_logic := (not resultUla(31));
 
 -- Instruction Ports
 signal concat_instr : std_logic_vector(3 downto 0) := (q_instr(30)&q_instr(14 downto 12));
 
-
 -- Signals for Processor
-signal masterClock, flipflopClock : std_logic := '0';
+signal masterClock: std_logic := '1';
+signal inverterMasterClock : std_logic := not masterClock;
+signal rd_index : std_logic_vector(4 downto 0);
 
 begin
 	
@@ -165,15 +181,16 @@ begin
 	MuxWherePC : MUX port map(A => resultPC_adder, B => resultPCJump_adder, S => and_Branch, Z => in_pc);
 	MuxULA : MUX port map(A => ro2_xregs, B => std_logic_vector(imm_generated), S => ALUSrc_control, Z => B_ula);
 	MuxMEM : MUX port map(A => resultUla, B => q_data, S => MemToReg_control, Z => WriteDataRegisters_mux);
+	MuxBranchs : MUX_Branchs port map(A => zero_ula, B => inverted_zero_ula, C => signal_answer, D => inverted_signal_answer, S => q_instr(14 downto 12), Z => MuxBranchResult);
 	
 	-- Memory of Instructions Part
-	Mem_Instrunctions : memIntr port map(address => out_pc(9 downto 2), clock => flipflopClock, wren => '0', data => X"00000000", q => q_instr);
+	Mem_Instrunctions : memIntr port map(address => out_pc(9 downto 2), clock => inverterMasterClock, wren => '0', data => X"00000000", q => q_instr);
 	
 	-- Control Part
 	Controller : control port map(opcode => (q_instr(6 downto 0)), Branch => Branch_control, MemRead => MemRead_control, MemToReg => MemToReg_control, ALUop => ALUop_control, MemWrite => MemWrite_control, ALUSrc => ALUSrc_control, RegWrite => RegWrite_control);
 	
 	-- Registers Part
-	RegBank : xregs port map(clk => flipflopClock, wren => RegWrite_control, rst => '0', rs1 => (q_instr(19 downto 15)), rs2 => (q_instr(24 downto 20)), rd => (q_instr(11 downto 7)), data => WriteDataRegisters_mux, ro1 => ro1_xregs, ro2 => ro2_xregs);
+	RegBank : xregs port map(clk => inverterMasterClock, wren => RegWrite_control, rst => '0', rs1 => (q_instr(19 downto 15)), rs2 => (q_instr(24 downto 20)), rd => (q_instr(11 downto 7)), data => WriteDataRegisters_mux, ro1 => ro1_xregs, ro2 => ro2_xregs);
 	
 	-- Immediate Generator Part
 	Imm_Gen : genImm32 port map(instr => q_instr, imm32 => imm_generated);
@@ -185,10 +202,21 @@ begin
 	ALU : ula port map(opcode => aluctr_control, A => ro1_xregs, B => B_ula, Z => resultUla, zero => zero_ula);
 	
 	-- Memory of Data Part
-	Mem_Data: memData port map(address => resultUla(9 downto 2), clock => flipflopClock, wren => MemWrite_control, data => ro2_xregs, q => q_data);
+	Mem_Data: memData port map(address => resultUla(9 downto 2), clock => masterClock, wren => MemWrite_control, data => ro2_xregs, q => q_data);
 	
-	masterClock <= not masterClock after 1 sec;
-	flipflopClock <= not flipflopClock after 0.1 sec;
-	reset_pc <= '0' after 0.5 sec;
+	masterClock <= not masterClock after 0.5 sec;
+	inverterMasterClock <= not masterClock;
+	
+	and_Branch <= (Branch_control and MuxBranchResult);
+	
+	inverted_zero_ula <= (not zero_ula);
+	signal_answer <= (resultUla(31));
+	inverted_signal_answer <= (not resultUla(31));
+	
+	concat_instr <= (q_instr(30)&q_instr(14 downto 12));
+	
+	rd_index <= (q_instr(11 downto 7));
+	
+	reset_pc <= '0' after 0.1 sec;
 
 end processor_arch;

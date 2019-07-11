@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "07/10/2019 19:18:52"
+-- DATE "07/11/2019 03:18:08"
 
 -- 
 -- Device: Altera EP4CGX15BF14C6 Package FBGA169
@@ -33,14 +33,12 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY 	processor IS
     PORT (
-	masterClock : IN std_logic;
-	flipflopClock : IN std_logic
+	masterClock : IN std_logic
 	);
 END processor;
 
 -- Design Ports Information
--- masterClock	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- flipflopClock	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- masterClock	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF processor IS
@@ -54,19 +52,16 @@ SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_masterClock : std_logic;
-SIGNAL ww_flipflopClock : std_logic;
 SIGNAL \masterClock~input_o\ : std_logic;
-SIGNAL \flipflopClock~input_o\ : std_logic;
 
 BEGIN
 
 ww_masterClock <= masterClock;
-ww_flipflopClock <= flipflopClock;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
--- Location: IOIBUF_X33_Y15_N8
+-- Location: IOIBUF_X26_Y31_N8
 \masterClock~input\ : cycloneiv_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -76,17 +71,6 @@ GENERIC MAP (
 PORT MAP (
 	i => ww_masterClock,
 	o => \masterClock~input_o\);
-
--- Location: IOIBUF_X12_Y31_N1
-\flipflopClock~input\ : cycloneiv_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_flipflopClock,
-	o => \flipflopClock~input_o\);
 END structure;
 
 

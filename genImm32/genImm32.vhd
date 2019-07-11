@@ -12,6 +12,7 @@ architecture genImm32_arch of genImm32 is
 
 signal opcode : std_logic_vector(7 downto 0);
 signal aux_imm : signed(31 downto 0);
+signal funct3_sign: std_logic_vector(2 downto 0);
 
 begin
 
@@ -19,7 +20,8 @@ begin
 	
 	proc_gen:process(instr, opcode, aux_imm)
 	begin
-	
+		
+		funct3_sign <= (instr(14)&instr(13)&instr(12));
 		opcode <= ('0'&instr(6 downto 0));
 	
 		case opcode is
@@ -29,7 +31,11 @@ begin
 			when X"37" => aux_imm <= (signed(shift_left((resize(signed(instr(31 downto 12)), 32)), 12)) and X"FFFFF000");
 			when X"17" => aux_imm <= (signed(shift_left((resize(signed(instr(31 downto 12)), 32)), 12)) and X"FFFFF000");
 			when X"6F" => aux_imm <= (resize(signed(instr(31)&instr(19 downto 12)&instr(20)&instr(30 downto 21)&'0'), 32));
-			when others => aux_imm <= (resize(signed(instr(31 downto 20)), 32));
+			when others => case funct3_sign is
+									when "001" => aux_imm <= (resize(signed(instr(24 downto 20)), 32));
+									when "101" => aux_imm <= (resize(signed(instr(24 downto 20)), 32));
+									when others => aux_imm <= (resize(signed(instr(31 downto 20)), 32));
+								end case;
 		end case;
 	end process;
 end genImm32_arch;
