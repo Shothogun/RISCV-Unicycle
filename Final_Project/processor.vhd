@@ -126,7 +126,7 @@ end component;
 -- Signals for MEMIntr
 signal q_instr : std_logic_vector(31 downto 0) := X"00000000";
 
-component memIntr IS
+component memIntr is
 	PORT
 	(
 		address		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -135,12 +135,12 @@ component memIntr IS
 		wren		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 	);
-END component;
+end component;
 
 -- Signals for MEMData
 signal q_data : std_logic_vector(31 downto 0);
 
-component memData IS
+component memData is
 	PORT
 	(
 		address		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -149,7 +149,7 @@ component memData IS
 		wren		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 	);
-END component;
+end component;
 
 -- Signals for ULA_control
 signal aluctr_control : ULA_OP;
